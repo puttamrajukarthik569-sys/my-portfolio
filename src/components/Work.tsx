@@ -28,7 +28,7 @@ const projects: Project[] = [
     description:
       "Distinguishes misinformation from authentic content using natural language processing. Implements text preprocessing, TF-IDF vectorisation, and a Naive Bayes classifier trained on labelled news datasets.",
     tools: "Python · NLP · Naive Bayes · Scikit-learn · TF-IDF",
-    image: "/images/placeholder.webp",
+    image: "/images/fake-news-detection.png",
   },
   {
     num: "02",
