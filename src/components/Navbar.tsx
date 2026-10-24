@@ -2,43 +2,98 @@ import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
-import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
+import Lenis from "lenis";
 import "./styles/Navbar.css";
 
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+gsap.registerPlugin(ScrollTrigger);
+
+// ---------------------------------------------------------------------------
+// Lenis-based smooth scroller — exposes an API compatible with the old
+// ScrollSmoother usage so all downstream call-sites stay unchanged.
+// ---------------------------------------------------------------------------
+interface SmootherLike {
+  scrollTo: (target: string | number | Element, immediate?: boolean, position?: string) => void;
+  scrollTop: (value?: number) => number;
+  paused: (value?: boolean) => void;
+  refresh: () => void;
+  lenis: Lenis | null;
+}
+
+let lenisInstance: Lenis | null = null;
+
+export const smoother: SmootherLike = {
+  lenis: null,
+  scrollTo(target, _immediate = true, _position = "top top") {
+    if (!lenisInstance) return;
+    if (typeof target === "number") {
+      lenisInstance.scrollTo(target, { immediate: _immediate });
+    } else {
+      // target is a CSS selector string like "#work"
+      const el =
+        typeof target === "string" ? document.querySelector(target) : target;
+      if (el) lenisInstance.scrollTo(el as HTMLElement, { immediate: _immediate });
+    }
+  },
+  scrollTop(value) {
+    if (!lenisInstance) return 0;
+    if (value !== undefined) {
+      lenisInstance.scrollTo(value, { immediate: true });
+    }
+    return lenisInstance.scroll;
+  },
+  paused(value) {
+    if (!lenisInstance) return;
+    if (value === true) lenisInstance.stop();
+    else if (value === false) lenisInstance.start();
+  },
+  refresh() {
+    ScrollTrigger.refresh(true);
+  },
+};
 
 const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
+    // Create Lenis instance
+    lenisInstance = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      smoothWheel: true,
     });
+    smoother.lenis = lenisInstance;
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    // Wire Lenis RAF to GSAP ticker so ScrollTrigger stays in sync
+    gsap.ticker.add((time) => {
+      lenisInstance?.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
-    let links = document.querySelectorAll(".header ul a");
+    // Pause until loading screen dismisses (initialFX calls smoother.paused(false))
+    lenisInstance.stop();
+
+    // Wire nav links to Lenis scrollTo on desktop
+    const links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
+      const element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
         if (window.innerWidth > 1024) {
           e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          const section = element.getAttribute("data-href");
+          if (section) smoother.scrollTo(section, true, "top top");
         }
       });
     });
+
     window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
+      ScrollTrigger.refresh(true);
     });
+
+    return () => {
+      lenisInstance?.destroy();
+      lenisInstance = null;
+    };
   }, []);
+
   return (
     <>
       <div className="header">
@@ -47,7 +102,7 @@ const Navbar = () => {
           className="navbar-title"
           data-cursor="disable"
           onClick={(e) => {
-            if (window.innerWidth > 1024 && smoother) {
+            if (window.innerWidth > 1024 && lenisInstance) {
               e.preventDefault();
               smoother.scrollTo(0, true);
             }

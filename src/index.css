@@ -6,7 +6,7 @@
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.5;
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Lenis handles smooth scrolling — native smooth would double up */
   color-scheme: light dark;
   color: #eae5ec;
   background-color: var(--backgroundColor);
@@ -32,6 +32,7 @@ h6 {
   font-family: "Geist", sans-serif;
 }
 body {
+  /* overflow:hidden set by JS during loading; Lenis needs body to be scrollable */
   overflow: hidden;
 }
 a {
