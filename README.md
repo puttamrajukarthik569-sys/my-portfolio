@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # My Portfolio Website - Overview 🚀
 
 This repository contains the open-source version of my personal portfolio website.  
@@ -63,3 +64,7 @@ This project is licensed under the Personal Portfolio License (PPL) v1.0.
 
 See the LICENSE file for full details
 
+=======
+# my-portfolio
+Personal portfolio showcasing my skills in Full Stack Development, Java, Python, Artificial Intelligence, and Machine Learning. Features my projects, education, internships, certifications, and achievements with a modern UI, smooth animations, and responsive design.
+>>>>>>> 2bfc707b68780cfe3ee9c85831177c98d7a9be22
