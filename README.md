@@ -3,6 +3,15 @@
 
 This repository contains the open-source version of my personal portfolio website.  
 Feel free to explore the code and use it for learning and inspiration.
+# Karthik's Portfolio
+
+🚀 Full Stack Developer | AI/ML Enthusiast
+
+🌐 **Live Portfolio:** [Visit My Website](https://my-portfolio-tau-three-vh7msffb90.vercel.app/)
+
+## 🛠️ Tech Stack
+
+React • TypeScript • GSAP • Three.js • HTML • CSS • JavaScript
 
 ---
 
@@ -20,17 +29,15 @@ If you use parts of the code, you must provide proper credit linking back to the
 
 Build your own version — don’t just copy.
 
-— Moncy Yohannan
+— KARTHIK PUTTAMRAJU
 
 ---
 
 ## 🛠️ Instructions
 
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
+This portfolio uses GSAP animations and Three.js for interactive visual effects.
 
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
+For GSAP documentation, visit the official [GSAP Documentation](https://gsap.com/docs/v3/).
 
 ---
 
@@ -54,7 +61,9 @@ Any usage, extraction, or redistribution of that avatar from my live website is 
 
 ---
 
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
+## My Portfolio
+
+[![Karthik's Portfolio](https://raw.githubusercontent.com/puttamrajukarthik569-sys/my-portfolio/main/portfolio-preview.png.png)](https://my-portfolio-tau-three-vh7msffb90.vercel.app/)
 
 ---
 
