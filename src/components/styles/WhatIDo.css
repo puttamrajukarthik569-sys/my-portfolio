@@ -391,3 +391,30 @@
     line-height: 6.8rem;
   }
 }
+
+/* Accessibility: reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .what-content-in {
+    animation: none;
+    opacity: 1;
+  }
+  .what-content::before,
+  .what-corner::before,
+  .what-content::after,
+  .what-corner::after {
+    animation: none;
+    opacity: 1;
+  }
+  .what-border1,
+  .what-border2 {
+    animation: none;
+    max-height: 100%;
+    max-width: 100%;
+    opacity: 0.2;
+  }
+  .what-content,
+  .what-arrow::before {
+    transition: none;
+  }
+}
+

@@ -208,3 +208,71 @@
     height: auto;
   }
 }
+
+/* ── Karthik project metadata additions ──────────────────────────── */
+.work-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  width: 90%;
+}
+
+.work-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.work-meta-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  min-width: 70px;
+}
+
+.work-meta-value {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.work-accuracy {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accentColor);
+  letter-spacing: 0.5px;
+}
+
+.work-tools-label {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4) !important;
+  margin: 12px 0 4px 0 !important;
+}
+
+.work-tools-text {
+  font-size: 12px !important;
+  font-weight: 300 !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  width: 90%;
+}
+
+/* Reduced-motion: disable horizontal pin scroll */
+@media (prefers-reduced-motion: reduce) {
+  .work-flex {
+    transform: none !important;
+  }
+}
+

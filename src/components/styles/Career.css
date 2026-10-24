@@ -214,3 +214,85 @@
     justify-content: left;
   }
 }
+
+/* ── Karthik additions ─────────────────────────────────────────── */
+.career-highlight {
+  color: var(--accentColor);
+  font-weight: 600;
+}
+
+/* Education strip — secondary schools */
+.career-edu-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 60px;
+  padding: 28px 32px;
+  border: 1px solid rgba(194, 164, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(194, 164, 255, 0.04);
+  flex-wrap: wrap;
+  row-gap: 24px;
+}
+
+.career-edu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.career-edu-year {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  opacity: 0.8;
+}
+
+.career-edu-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #eae5ec;
+  line-height: 1.4;
+}
+
+.career-edu-score {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.career-edu-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(194, 164, 255, 0.25);
+  margin: 0 40px;
+  flex-shrink: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .career-edu-strip {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .career-edu-divider {
+    width: 60px;
+    height: 1px;
+    margin: 0;
+  }
+}
+
+/* Reduced-motion: disable timeline animation */
+@media (prefers-reduced-motion: reduce) {
+  .career-dot {
+    animation: none;
+  }
+  .career-timeline {
+    max-height: 100%;
+  }
+}
+

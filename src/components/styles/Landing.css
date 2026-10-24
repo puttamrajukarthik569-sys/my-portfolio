@@ -108,7 +108,7 @@
   left: 50%;
   z-index: 0;
   bottom: 50px;
-  pointer-events: inherit;
+  pointer-events: none;
 }
 .character-model::after {
   content: "";
@@ -155,6 +155,7 @@
   z-index: 3;
   transform: translate(-50%, -50%);
   border-radius: 50%;
+  pointer-events: none;
 }
 .landing-intro {
   position: absolute;
@@ -356,3 +357,134 @@ h2.landing-info-h2 {
     font-size: 75px;
   }
 }
+
+/* ── New additions for Karthik's portfolio ───────────────────────── */
+
+/* Social icon row under name */
+.landing-social-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+.landing-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(194, 164, 255, 0.35);
+  background: rgba(194, 164, 255, 0.07);
+  font-size: 17px;
+  color: var(--accentColor);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+.landing-social-icon:hover {
+  background: rgba(194, 164, 255, 0.2);
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* Tagline under rotating title */
+.landing-tagline {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 12px 0 0 0;
+  letter-spacing: 0.3px;
+}
+@media screen and (min-width: 1025px) {
+  .landing-tagline {
+    font-size: 15px;
+  }
+}
+
+/* CTA Buttons */
+.landing-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+.landing-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.landing-btn-primary {
+  background: linear-gradient(135deg, #7f40ff, #c481ff);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 0 18px rgba(127, 64, 255, 0.45);
+}
+.landing-btn-primary:hover {
+  box-shadow: 0 0 28px rgba(127, 64, 255, 0.7);
+  transform: translateY(-2px);
+  color: #fff;
+}
+.landing-btn-outline {
+  background: transparent;
+  color: var(--accentColor);
+  border: 1px solid rgba(194, 164, 255, 0.45);
+}
+.landing-btn-outline:hover {
+  background: rgba(194, 164, 255, 0.1);
+  border-color: var(--accentColor);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.landing-btn:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 4px;
+}
+
+.landing-btn:active {
+  transform: scale(0.96);
+}
+
+/* Scroll indicator */
+.landing-scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.35);
+  z-index: 10;
+  animation: scrollBounce 1.6s ease-in-out infinite;
+  pointer-events: none;
+  display: flex;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.35; }
+  50%       { transform: translateX(-50%) translateY(6px); opacity: 0.75; }
+}
+
+/* Accessibility: reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .landing-scroll-indicator {
+    animation: none;
+    opacity: 0.5;
+  }
+  .landing-circle1,
+  .landing-circle2 {
+    animation: none;
+  }
+  .landing-btn-primary,
+  .landing-btn-outline,
+  .landing-social-icon {
+    transition: none;
+  }
+}
+

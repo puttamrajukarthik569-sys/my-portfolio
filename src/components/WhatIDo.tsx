@@ -58,6 +58,8 @@ const WhatIDo = () => {
               />
             </svg>
           </div>
+
+          {/* Panel 1 — Full Stack / Web Dev */}
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 0)}
@@ -85,30 +87,30 @@ const WhatIDo = () => {
               </svg>
             </div>
             <div className="what-corner"></div>
-
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
-              <h4>Description</h4>
+              <h3>FULL STACK</h3>
+              <h4>Web Development</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+                I design and build complete web applications — from responsive
+                front-end interfaces with HTML &amp; CSS to back-end logic with
+                Java and Python, wired to databases like MySQL and MongoDB.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">HTML</div>
+                <div className="what-tags">CSS</div>
+                <div className="what-tags">Java</div>
+                <div className="what-tags">Python</div>
+                <div className="what-tags">MySQL</div>
+                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">Tableau</div>
+                <div className="what-tags">Power BI</div>
               </div>
               <div className="what-arrow"></div>
             </div>
           </div>
+
+          {/* Panel 2 — AI & ML */}
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 1)}
@@ -128,22 +130,21 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>DESIGN</h3>
-              <h4>Description</h4>
+              <h3>AI / ML</h3>
+              <h4>Artificial Intelligence &amp; Machine Learning</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+                I apply machine learning and NLP to build intelligent features —
+                from fake-news classifiers to sustainability prediction models —
+                adding smart capabilities to full-stack applications.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">Machine Learning</div>
+                <div className="what-tags">NLP</div>
+                <div className="what-tags">Naive Bayes</div>
+                <div className="what-tags">Random Forest</div>
+                <div className="what-tags">Scikit-learn</div>
+                <div className="what-tags">Python</div>
               </div>
               <div className="what-arrow"></div>
             </div>

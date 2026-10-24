@@ -42,15 +42,25 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          Logo
+        <a
+          href="#"
+          className="navbar-title"
+          data-cursor="disable"
+          onClick={(e) => {
+            if (window.innerWidth > 1024 && smoother) {
+              e.preventDefault();
+              smoother.scrollTo(0, true);
+            }
+          }}
+        >
+          KK.
         </a>
         <a
-          href="mailto:example@mail.com"
+          href="mailto:Kp7272@srmist.edu.in"
           className="navbar-connect"
           data-cursor="disable"
         >
-          example@mail.com
+          Kp7272@srmist.edu.in
         </a>
         <ul>
           <li>
@@ -61,6 +71,11 @@ const Navbar = () => {
           <li>
             <a data-href="#work" href="#work">
               <HoverLinks text="WORK" />
+            </a>
+          </li>
+          <li>
+            <a data-href="#certifications" href="#certifications">
+              <HoverLinks text="CERTS" />
             </a>
           </li>
           <li>

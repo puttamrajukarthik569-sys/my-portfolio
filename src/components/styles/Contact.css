@@ -29,6 +29,17 @@
 a.contact-social {
   font-size: 25px;
   border-bottom: 1px solid #ccc;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+a.contact-social:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+a.contact-social:active {
+  opacity: 0.7;
 }
 .contact-box h2 {
   font-weight: 400;
